@@ -47,42 +47,90 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+
+# Step 1:
+Create a project with required entities.
+
+# Step 2:
+Create a module along with respective file name for both Multiplexer and De-multiplexer.
+
+# Step 3:
+Run the module and get the respective RTL outputs.
+
+# Step 4:
+Create university program(VWF) for getting timing diagram.
+
+# Step 5 :
+Give the respective inputs for timing diagram and obtain the results.
 
 
-
-### PROGRAM 
-/*
+### PROGRAM :
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: JEEVITHA.E
+RegisterNumber:  212222230054
+```
 
 
-
-
-
+## MULTIPLEXER:
+```
+module multiplexer(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire P,Q,R,S,S0c,S1c;
+not(S0c,S0);
+not(S1c,S1);
+and(P,S0c,S1c,I0);
+and(Q,S0c,S1,I1);
+and(R,S0,S1c,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+```
+# DEMULTIPLEXER:
+```
+module demultiplexer(Y0,Y1,Y2,Y3,S0,S1,I);
+input I,S0,S1;
+output Y0,Y1,Y2,Y3;
+wire S0c,S1c;
+not(S0c,S0);
+nor(S1c,S1);
+and (Y0,I,S0c,S1c);
+and(Y1,I,S0c,S1);
+and(Y2,I,S0,S1c);
+and(Y3,I,S0,S1);
+endmodule
+```
 
 ### RTL LOGIC  
 
+# MULTIPLEXER:
+
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/a592dabc-5f9c-4ea4-a251-157d45277814)
 
 
-
-
-
+# DEMULTIPLEXER:
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/9c78e99d-817f-4513-94ed-762ff50ad652)
 
 
 ### TIMING DIGRAMS  
+# MULTIPLEXER:
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/5b9093bc-5763-4f8f-b2c0-9f011c608044)
 
 
-
+# DEMULTIPLEXER:
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/42af0d65-03e4-412d-86ab-72f43b9c872d)
 
 
 ### TRUTH TABLE 
+# MULTIPLEXER:
+
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/d04abc8b-9db8-40a8-8019-805b437433b0)
+
+# DEMULTIPLEXER:
+![image](https://github.com/Jeevithaelumalai/Exercise-07-Multiplexer-and-De-multiplexer/assets/118708245/677e6439-448d-42c4-acb9-e8fb160187bd)
 
 
+### RESULTS :
 
-
-
-
-### RESULTS 
+Thus the program to design a 4x1 multiplexer and 1x4 demultiplexer is done successful.
